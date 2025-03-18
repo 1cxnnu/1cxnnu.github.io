@@ -6,16 +6,73 @@
     <title>Manuel Corrigés</title>
     <link rel="stylesheet" href="style.css">
     <link rel="icon" href="Premiere/Image/29302.png">
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: Arial, sans-serif;
+        }
+        body {
+            height: 100vh;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            background: linear-gradient(135deg, #1e1e1e, #3a3a3a);
+            color: white;
+            overflow: hidden;
+        }
+        .choix-niveau {
+            background: rgba(255, 255, 255, 0.1);
+            backdrop-filter: blur(10px);
+            padding: 30px;
+            border-radius: 20px;
+            box-shadow: 0 4px 10px rgba(0, 0, 0, 0.3);
+            text-align: center;
+            animation: fadeIn 1s ease-in-out;
+        }
+        .buttons-niveau img {
+            width: 385px;
+            border-radius: 15px;
+            margin-bottom: 20px;
+            box-shadow: 0 4px 10px rgba(0, 0, 0, 0.3);
+        }
+        .buttons-niveau a {
+            display: block;
+            margin: 10px 0;
+            padding: 12px;
+            font-size: 18px;
+            font-weight: bold;
+            text-decoration: none;
+            color: white;
+            background: rgba(255, 255, 255, 0.2);
+            border-radius: 10px;
+            transition: all 0.3s ease-in-out;
+        }
+        .buttons-niveau a:hover {
+            background: rgba(255, 255, 255, 0.4);
+            transform: scale(1.05);
+        }
+        @keyframes fadeIn {
+            from {
+                opacity: 0;
+                transform: translateY(-20px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+    </style>
 </head>
-<body style="height: 100dvh; display: flex; justify-content: center; align-items: center">
-    
+<body>
     <div class="choix-niveau">
-    <div class="buttons-niveau">
-        <img src="Premiere/Image/Capture d'écran 2024-12-01 191916.png" width="385px">
-        <a href="Seconde/seconde.html" style="text-decoration: none;"><font color="black"><b>Seconde (2de)</b></font></a>
-        <a href="Premiere/premiere.html" style="text-decoration: none;" ><font color="Black"><b>Première (1re)</b></font></a>
-        <a href="Terminale/terminale.html" style="text-decoration: none;"><font color="Black"><b>Terminale (Tle)</b></font></a>
+        <div class="buttons-niveau">
+            <img src="Premiere/Image/Capture d'écran 2024-12-01 191916.png" alt="Manuels">
+            <a href="Seconde/seconde.html">Seconde (2de)</a>
+            <a href="Premiere/premiere.html">Première (1re)</a>
+            <a href="Terminale/terminale.html">Terminale (Tle)</a>
+        </div>
     </div>
-</div>
 </body>
 </html>
