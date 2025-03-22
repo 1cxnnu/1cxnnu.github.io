@@ -1,124 +1,91 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="fr">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Terminale | Manuels Corrigés</title>
-  <link href="https://fonts.googleapis.com/css2?family=Baloo+Tamma+2:wght@400..800&display=swap" rel="stylesheet">
-  <link rel="stylesheet" href="style.css">
-  <link rel="icon" href="Premiere/Image/29302.png">
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Première | Manuels Corrigés</title>
+    <link rel="stylesheet" href="style.css">
+    <link rel="icon" href="Image/29302.png">
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Arial', sans-serif;
+        }
+        body {
+            height: 100vh;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            background: linear-gradient(135deg, #0d0d0d, #1a1a1a);
+            overflow: hidden;
+            position: relative;
+            animation: backgroundMove 40s linear infinite;
+        }
+        @keyframes backgroundMove {
+            0% { background-position: 0 0; }
+            100% { background-position: 100% 100%; }
+        }
+        ::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: url('Image/Background.jpg') center/cover no-repeat;
+            filter: blur(10px) brightness(0.2);
+            z-index: -1;
+        }
+        .container {
+            background: rgba(30, 30, 30, 0.9);
+            padding: 50px;
+            border-radius: 25px;
+            box-shadow: 0 15px 30px rgba(0, 0, 0, 0.8);
+            text-align: center;
+            width: 90%;
+            max-width: 1000px;
+            animation: fadeIn 1s ease-in-out;
+            position: relative;
+        }
+        @keyframes fadeIn {
+            from { opacity: 0; transform: translateY(-30px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+        .container img {
+            width: auto;
+            max-width: 900px;
+            height: 100px;
+            border-radius: 15px;
+            box-shadow: 0 10px 20px rgba(0, 0, 0, 0.5);
+            transition: transform 0.8s ease-out;
+        }
+        .container img:hover {
+            transform: scale(1.05);
+        }
+        .card {
+            display: inline-block;
+            margin: 20px;
+            padding: 15px;
+            background: rgba(50, 50, 50, 0.7);
+            border-radius: 15px;
+            transition: all 0.8s ease-in-out;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.5);
+            text-align: center;
+        }
+        .card:hover {
+            background: rgba(100, 100, 100, 0.8);
+            transform: scale(1.05);
+            box-shadow: 0 8px 25px rgba(255, 255, 255, 0.1);
+        }
+    </style>
 </head>
 <body>
-<header>
-    <section id="one" class="color-fr">
-      <h1><a href="https://www.paypal.com/donate/?hosted_button_id=3FBNLMGT3JAJ2"><img src="https://upload.wikimedia.org/wikipedia/commons/thumb/0/00/Flag_of_Palestine.svg/383px-Flag_of_Palestine.svg.png" width="60px"></a>Manuels Corrigés</h1>
-    </section>
-  </header>
-   <a><center><font color="Black">Attention il n'y a pas tous les manuels, les manuels écrits en rouge sont les originaux sans les corrigés</font></center></a>
-    <center>
-      <b><u><h2>Manuel Terminale</h2></u></b>
-      <a href="../index.html" >
-        <img src="Image/Capture d'écran 2024-12-01 191916.png" width="385px">
-      </a>
-    </center>
-     <center><a><font color="Black">Ce site est un site de manuels corrigés les manuels sont liées à St Rémi de Roubaix mais il n'y a aucune collaboration avec ce site.</a></font></center>
-    <center>
-    <a href="Manuel/GEOTle.pdf" width="400px">
-      <div class="card">
-        <img src="https://www.editions-hatier.fr/sites/default/files/couvertures/couverture_5589092.jpg" width="350px">
-          <div class="text">
-            <div class="cardcharactername" href="Manuel/GEOTle.pdf"><font color="Black">Géographie</font></div>
-          </div>
-      </div>
-    </a>
-    <a href="Manuel/HistoireTle.pdf" width="400px">
-        <div class="card">
-          <img src="https://www.magnard.fr/sites/default/files/styles/mea_grand/public/couvertures/9782210113688-g.jpg?itok=ZavnHA8i" width="350px">
-            <div class="text">
-              <div class="cardcharactername" href="Manuel/HistoireTle.pdf"><font color="Black">Histoire</font></div>
-            </div>
-        </div>
-      </a>
-      <a href="Manuel/9782210114166_ldp_exp_integrale.pdf" width="400px">
-        <div class="card">
-          <img src="https://www.magnard.fr/sites/default/files/styles/mea_grand/public/couvertures/9782210114081-g.jpg?itok=UjGGxMzz" width="350px">
-            <div class="text">
-              <div class="cardcharactername" href="Manuel/9782210114166_ldp_exp_integrale.pdf"><font color="Black">Math Expert</font></div>
-            </div>
-        </div>
-      </a>
-    <a href="Manuel/9782210114258-ldp-integralite.pdf" width="400px">
-        <div class="card">
-          <img src="https://www.magnard.fr/sites/default/files/styles/couverture_grande/public/couvertures/9782210114234-g.jpg?itok=L47Zc106" width="350px">
-            <div class="text">
-              <div class="cardcharactername" href="Manuel/9782210114258-ldp-integralite.pdf"><font color="Black">Math Complémentaire</font></div>
-            </div>
-        </div>
-      </a>
-    <a href="Manuel/09172892_Hyp_Specialite_LDP_COMPLET_1.pdf" width="400px">
-        <div class="card">
-          <img src="https://enseignants.nathan.fr/sites/default/files/styles/lightframe/public/ouvrage/9782091728919.jpg?itok=wm3BOiUx&lightmodal=1" width="350px">
-            <div class="text">
-              <div class="cardcharactername" href="Manuel/09172892_Hyp_Specialite_LDP_COMPLET_1.pdf"><font color="Black">TP Mathématiques</font></div>
-            </div>
-        </div>
-      </a>
-      <a href="Manuel/03580900_ldp_svt.pdf" width="400px">
-        <div class="card">
-          <img src="https://www.belin-education.com/sites/default/files/styles/bl_produit_large/public/pim_images/03581014_2.jpg?itok=jaabwsIA" width="350px">
-            <div class="text">
-              <div class="cardcharactername" href="Manuel/03580900_ldp_svt.pdf"><font color="Black">SVT</font></div>
-            </div>
-        </div>
-      </a>
-      <a href="Manuel/SES.pdf" width="400px">
-        <div class="card">
-          <img src="https://www.magnard.fr/sites/default/files/styles/couverture_grande/public/couvertures/9782210113824-g.jpg?itok=g6_3Rl9M" width="350px">
-            <div class="text">
-              <div class="cardcharactername" href="Manuel/SES.pdf"><font color="Black">SES</font></div>
-            </div>
-        </div>
-      </a>
-      <a href="Manuel/HGGSPTle.pdf" width="400px">
-        <div class="card">
-          <img src="https://www.magnard.fr/sites/default/files/styles/mea_grand/public/couvertures/9782210113794-g.jpg?itok=8CZZTmAQ" width="350px">
-            <div class="text">
-              <div class="cardcharactername" href="Manuel/HGGSPTle.pdf"><font color="Black">HGGSP</font></div>
-            </div>
-        </div>
-      </a>
-      <a href="Manuel/lanzate_term_gp_complet.pdf" width="400px">
-        <div class="card">
-          <img src="https://enseignants.nathan.fr/sites/default/files/ouvrage/9782091781594.jpg" width="350px">
-            <div class="text">
-              <div class="cardcharactername" href="Manuel/lanzate_term_gp_complet.pdf"><font color="Black">Espagnol</font></div>
-            </div>
-        </div>
-      </a>
-      <a href="https://drive.google.com/file/d/1QfgaIW4aYRrDhpUjzTe6qKw83fjS3Hm1/view?usp=sharing" width="400px">
-        <div class="card">
-          <img src="https://assets.lls.fr/books/4634068/Couv-PC-Term.png" width="350px">
-            <div class="text">
-              <div class="cardcharactername" href="https://drive.google.com/file/d/1QfgaIW4aYRrDhpUjzTe6qKw83fjS3Hm1/view?usp=sharing"><font color="Black">Spé Physique</font></div>
-            </div>
-        </div>
-      </a>
-      <a href="Manuel/09167390_001-118_LP.pdf" width="400px">
-        <div class="card">
-          <img src="https://enseignants.nathan.fr/sites/default/files/ouvrage/9782091721149.jpg" width="350px">
-            <div class="text">
-              <div class="cardcharactername" href="Manuel/09167390_001-118_LP.pdf"><font color="Black">Spé HLPHI</font></div>
-            </div>
-        </div>
-      </a>
-      <a href="Manuel/733761_ldp_integral.pdf" width="400px">
-        <div class="card">
-          <img src="https://www.editions-bordas.fr/sites/default/files/styles/desktop_ouvrage_full/public/medias/images/ouvrages/9782047404867.jpg" width="350px">
-            <div class="text">
-              <div class="cardcharactername" href="Manuel/733761_ldp_integral.pdf"><font color="Black">Enseignement Scientifique</font></div>
-            </div>
-        </div>
-      </a>
-        </center>
+    <div class="container">
+        <a href="../index.html">
+        <img src="Image/Capture d'écran 2024-12-01 191916.png" alt="Manuels">
+        </a><h2>Manuel Terminale</h2><div class="card"><a href="Manuel/GEOTle.pdf"><img src="https://www.editions-hatier.fr/sites/default/files/couvertures/couverture_5589092.jpg" width="350px"><br>Géographie</a></div><div class="card"><a href="Manuel/HistoireTle.pdf"><img src="https://www.magnard.fr/sites/default/files/couvertures/9782210113688-g.jpg" width="350px"><br>Histoire</a></div><div class="card"><a href="Manuel/9782210114166_ldp_exp_integrale.pdf"><img src="https://www.magnard.fr/sites/default/files/couvertures/9782210114081-g.jpg" width="350px"><br>Math Expert</a></div><div class="card"><a href="Manuel/9782210114258-ldp-integralite.pdf"><img src="https://www.magnard.fr/sites/default/files/couvertures/9782210114234-g.jpg" width="350px"><br>Math Complémentaire</a></div><div class="card"><a href="Manuel/09172892_Hyp_Specialite_LDP_COMPLET_1.pdf"><img src="https://static-www.nathan.fr/produits/hyperbole-terminale-specialite-9782091728919.webp" width="350px"><br>TP Mathématiques</a></div><div class="card"><a href="Manuel/03580900_ldp_svt.pdf"><img src="https://www.belin-education.com/sites/default/files/pim_images/03581014_2.jpg" width="350px"><br>SVT</a></div><div class="card"><a href="Manuel/SES.pdf"><img src="https://www.magnard.fr/sites/default/files/couvertures/9782210113824-g.jpg" width="350px"><br>SES</a></div><div class="card"><a href="Manuel/HGGSPTle.pdf"><img src="https://www.magnard.fr/sites/default/files/couvertures/9782210113794-g.jpg" width="350px"><br>HGGSP</a></div><div class="card"><a href="Manuel/lanzate_term_gp_complet.pdf"><img src="https://static-www.nathan.fr/produits/lanzate-terminale-9782091781594.webp" width="350px"><br>Espagnol</a></div><div class="card"><a href="https://drive.google.com/file/d/1QfgaIW4aYRrDhpUjzTe6qKw83fjS3Hm1/view?usp=sharing"><img src="https://assets.lls.fr/books/4634068/Couv-PC-Term.png" width="350px"><br>Spé Physique</a></div><div class="card"><a href="Manuel/733761_ldp_integral.pdf"><img src="https://www.editions-bordas.fr/sites/default/files/medias/images/ouvrages/9782047404867.jpg" width="350px"><br>Enseignement Scientifique</a></div>
+    </div>
 </body>
 </html>
