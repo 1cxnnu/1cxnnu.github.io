@@ -11,58 +11,103 @@
             margin: 0;
             padding: 0;
             box-sizing: border-box;
-            font-family: Arial, sans-serif;
+            font-family: 'Arial', sans-serif;
         }
+
+        /* 🔥 FOND DÉGRADÉ NOIR & GRIS AVEC LÉGER MOUVEMENT */
         body {
             height: 100vh;
             display: flex;
             justify-content: center;
             align-items: center;
-            background: linear-gradient(135deg, #1e1e1e, #3a3a3a);
-            color: white;
+            background: linear-gradient(135deg, #0d0d0d, #1a1a1a);
             overflow: hidden;
+            position: relative;
+            animation: backgroundMove 40s linear infinite;
         }
+
+        @keyframes backgroundMove {
+            0% { background-position: 0 0; }
+            100% { background-position: 100% 100%; }
+        }
+
+        /* 🔹 AJOUT D’UN FOND FLOUTÉ */
+        ::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: url('Premiere/Image/Background.jpg') center/cover no-repeat;
+            filter: blur(10px) brightness(0.2);
+            z-index: -1;
+        }
+
+        /* 🔥 CONTAINER PRINCIPAL (prend toute la place) */
         .choix-niveau {
-            background: rgba(255, 255, 255, 0.1);
-            backdrop-filter: blur(10px);
-            padding: 30px;
-            border-radius: 20px;
-            box-shadow: 0 4px 10px rgba(0, 0, 0, 0.3);
+            background: rgba(30, 30, 30, 0.9);
+            padding: 50px;
+            border-radius: 25px;
+            box-shadow: 0 15px 30px rgba(0, 0, 0, 0.8);
             text-align: center;
+            width: 90%;
+            max-width: 1000px;
             animation: fadeIn 1s ease-in-out;
+            position: relative;
         }
+
+        @keyframes fadeIn {
+            from { opacity: 0; transform: translateY(-30px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+
+        /* 🔥 IMAGE LOGO + MÊME ANIMATION QUE LES BOUTONS */
         .buttons-niveau img {
-            width: 385px;
+            width: auto;
+            max-width: 900px;
+            height: 100px;
             border-radius: 15px;
-            margin-bottom: 20px;
-            box-shadow: 0 4px 10px rgba(0, 0, 0, 0.3);
+            box-shadow: 0 10px 20px rgba(0, 0, 0, 0.5);
+            transition: transform 0.8s ease-out;
         }
-        .buttons-niveau a {
-            display: block;
-            margin: 10px 0;
-            padding: 12px;
-            font-size: 18px;
-            font-weight: bold;
-            text-decoration: none;
-            color: white;
-            background: rgba(255, 255, 255, 0.2);
-            border-radius: 10px;
-            transition: all 0.3s ease-in-out;
-        }
-        .buttons-niveau a:hover {
-            background: rgba(255, 255, 255, 0.4);
+
+        .buttons-niveau img:hover {
             transform: scale(1.05);
         }
-        @keyframes fadeIn {
-            from {
-                opacity: 0;
-                transform: translateY(-20px);
-            }
-            to {
-                opacity: 1;
-                transform: translateY(0);
-            }
+
+        /* 🔥 BOUTONS AVEC STYLE ÉLÉGANT */
+        .buttons-niveau a {
+            display: block;
+            margin: 20px 0;
+            padding: 15px;
+            font-size: 20px;
+            font-weight: bold;
+            text-decoration: none !important; /* Supprime le soulignement */
+            color: #ddd;
+            background: rgba(50, 50, 50, 0.7);
+            border-radius: 15px;
+            transition: all 0.8s ease-in-out;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.5);
+            outline: none;
+            user-select: none; /* Empêche la sélection du texte */
         }
+
+        /* 🔥 HOVER DES BOUTONS (Effet lumineux progressif) */
+        .buttons-niveau a:hover {
+            background: rgba(100, 100, 100, 0.8);
+            transform: scale(1.05);
+            box-shadow: 0 8px 25px rgba(255, 255, 255, 0.1);
+        }
+
+        /* 🔥 EFFET CLIQUE (RÉTROACTION SUBTILE) */
+        .buttons-niveau a:focus,
+        .buttons-niveau a:active {
+            text-decoration: none !important;
+            outline: none;
+            transform: scale(0.98);
+        }
+
     </style>
 </head>
 <body>
