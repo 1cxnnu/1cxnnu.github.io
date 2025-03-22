@@ -1,103 +1,101 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="fr">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Seconde | Manuels Corrigés</title>
-  <link href="https://fonts.googleapis.com/css2?family=Baloo+Tamma+2:wght@400..800&display=swap" rel="stylesheet">
-  <link rel="stylesheet" href="style.css">
-  <link rel="icon" href="Image/29302.png">
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Seconde | Manuels Corrigés</title>
+    <link rel="stylesheet" href="style.css">
+    <link rel="icon" href="Image/29302.png">
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Arial', sans-serif;
+        }
+        body {
+            height: 100vh;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            background: linear-gradient(135deg, #0d0d0d, #1a1a1a);
+            overflow: hidden;
+            position: relative;
+            animation: backgroundMove 40s linear infinite;
+        }
+        @keyframes backgroundMove {
+            0% { background-position: 0 0; }
+            100% { background-position: 100% 100%; }
+        }
+        ::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: url('Image/Background.jpg') center/cover no-repeat;
+            filter: blur(10px) brightness(0.2);
+            z-index: -1;
+        }
+        .container {
+            background: rgba(30, 30, 30, 0.9);
+            padding: 50px;
+            border-radius: 25px;
+            box-shadow: 0 15px 30px rgba(0, 0, 0, 0.8);
+            text-align: center;
+            width: 90%;
+            max-width: 1000px;
+            animation: fadeIn 1s ease-in-out;
+            position: relative;
+        }
+        @keyframes fadeIn {
+            from { opacity: 0; transform: translateY(-30px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+        .container img {
+            width: auto;
+            max-width: 900px;
+            height: 100px;
+            border-radius: 15px;
+            box-shadow: 0 10px 20px rgba(0, 0, 0, 0.5);
+            transition: transform 0.8s ease-out;
+        }
+        .container img:hover {
+            transform: scale(1.05);
+        }
+        .card {
+            display: inline-block;
+            margin: 20px;
+            padding: 15px;
+            background: rgba(50, 50, 50, 0.7);
+            border-radius: 15px;
+            transition: all 0.8s ease-in-out;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.5);
+            text-align: center;
+        }
+        .card:hover {
+            background: rgba(100, 100, 100, 0.8);
+            transform: scale(1.05);
+            box-shadow: 0 8px 25px rgba(255, 255, 255, 0.1);
+        }
+    </style>
 </head>
 <body>
-
-    <section id="one" class="color-fr">
-      <h1><a href="https://www.paypal.com/donate/?hosted_button_id=3FBNLMGT3JAJ2"><img src="https://upload.wikimedia.org/wikipedia/commons/thumb/0/00/Flag_of_Palestine.svg/383px-Flag_of_Palestine.svg.png" width="60px"></a>Manuels Corrigés</h1>
-    </section>
-   <a><center><font color="Black">Attention il n'y a pas tous les manuels, les manuels écrits en rouge sont les originaux sans les corrigés</font></center></a>
-    <center>
-      <b><u><h2>Manuel Seconde</h2></u></b>
-      <a href="../index.html" >
-        <img src="Image/Capture d'écran 2024-12-01 191916.png" width="385px">
-      </a>
-    </center>
-     <center><a><font color="Black">Ce site est un site de manuels corrigés les manuels sont liées à St Rémi de Roubaix mais il n'y a aucune collaboration avec ce site.</a></font></center>
-    <center>
-    <a href="Manuel/Geo2ND.pdf" width="400px">
-      <div class="card">
-        <img src="https://www.magnard.fr/sites/default/files/couvertures/9782210117624-g.jpg" width="350px">
-          <div class="text">
-            <div class="cardcharactername" href="Manuel/Geo2ND.pdf"><font color="Black">Géographie</font></div>
-          </div>
-      </div>
-    </a>
-    <a href="Manuel/Histoire.pdf" width="400px">
-        <div class="card">
-          <img src="https://www.belin-education.com/sites/default/files/styles/bl_produit_large/public/pim_images/03580212_2.jpg?itok=CIXL_Ntu" width="350px">
-            <div class="text">
-              <div class="cardcharactername" href="Manuel/Histoire.pdf"><font color="Black">Histoire</font></div>
-            </div>
-        </div>
-      </a>
-      <a href="Manuel/ManuelMath.pdf" width="400px">
-        <div class="card">
-          <img src="https://www.magnard.fr/sites/default/files/couvertures/9782210111653-g.jpg" width="350px">
-            <div class="text">
-              <div class="cardcharactername" href="Manuel/ManuelMath.pdf"><font color="Black">Mathématiques</font></div>
-            </div>
-        </div>
-      </a>
-    <a href="Manuel/TPFr.pdf" width="400px">
-        <div class="card">
-          <img src="https://www.magnard.fr/sites/default/files/couvertures/9782210114906-g.jpg" width="350px">
-            <div class="text">
-              <div class="cardcharactername" href="Manuel/TPFr.pdf"><font color="Black">TP Français</font></div>
-            </div>
-        </div>
-      </a>
-    <a href="Manuel/TPMath.pdf" width="400px">
-        <div class="card">
-          <img src="https://enseignants.nathan.fr/sites/default/files/styles/lightframe/public/ouvrage/9782091729213.jpg?itok=isYNy4Tc&lightmodal=1" width="350px">
-            <div class="text">
-              <div class="cardcharactername" href="Manuel/TPMath.pdf"><font color="Black">TP Mathématiques</font></div>
-            </div>
-        </div>
-      </a>
-      <a href="https://drive.google.com/file/d/1pc-6UDm0aRz2k5m4Jt4neIOhA6EG8b0Y/view?usp=sharing" width="400px">
-        <div class="card">
-          <img src="https://assets.lls.fr/books/978-2-37760-143-1-PC2_P_2019.png" width="350px">
-            <div class="text">
-              <div class="cardcharactername" href="https://drive.google.com/file/d/1pc-6UDm0aRz2k5m4Jt4neIOhA6EG8b0Y/view?usp=sharing"><font color="Black">Physique Chimie</font></div>
-            </div>
-        </div>
-      </a>
-      <a href="Manuel/LDP_SES_2de_2019.pdf" width="400px">
-        <div class="card">
-          <img src="https://cdn.cultura.com/cdn-cgi/image/width=830/media/pim/TITELIVE/68_9782095016593_1_75.jpg" width="350px">
-            <div class="text">
-              <div class="cardcharactername" href="Manuel/LDP_SES_2de_2019.pdf"><font color="Black">SES</font></div>
-            </div>
-        </div>
-      </a>
-      <a href="https://drive.google.com/drive/folders/1314ui2_Sbn6-kIHdk0SHP9NpUjdQd6ef" width="400px">
-        <div class="card">
-          <img src="https://assets.lls.fr/books/978-2-37760-155-4-FR2_P_2019.png" width="350px">
-            <div class="text">
-              <div class="cardcharactername" href="https://drive.google.com/drive/folders/1314ui2_Sbn6-kIHdk0SHP9NpUjdQd6ef"><font color="Black">Français</font></div>
-            </div>
-        </div>
-      </a>
-      <a href="Manuel/Lanzate2de_Livre_du_professeur.pdf" width="400px">
-        <div class="card">
-          <img src="https://enseignants.nathan.fr/sites/default/files/ouvrage/9782091781556.jpg" width="350px">
-            <div class="text">
-              <div class="cardcharactername" href="Manuel/Lanzate2de_Livre_du_professeur.pdf"><font color="Black">Espagnol</font></div>
-            </div>
-        </div>
-      </a>
-        </center>
+    <div class="container">
+        <a href="../index.html">
+        <img src="Image/Capture d'écran 2024-12-01 191916.png" alt="Manuels">
+        </a>
+        <h2>Manuel Seconde</h2>
+        <div class="card"><a href="Manuel/Geo2ND.pdf"><img src="https://www.magnard.fr/sites/default/files/couvertures/9782210117624-g.jpg" width="350px"><br>Géographie</a></div>
+        <div class="card"><a href="Manuel/Histoire.pdf"><img src="https://www.belin-education.com/sites/default/files/styles/bl_produit_large/public/pim_images/03580212_2.jpg" width="350px"><br>Histoire</a></div>
+        <div class="card"><a href="Manuel/ManuelMath.pdf"><img src="https://www.magnard.fr/sites/default/files/couvertures/9782210111653-g.jpg" width="350px"><br>Mathématiques</a></div>
+        <div class="card"><a href="Manuel/TPFr.pdf"><img src="https://www.magnard.fr/sites/default/files/couvertures/9782210114906-g.jpg" width="350px"><br>TP Français</a></div>
+        <div class="card"><a href="Manuel/TPMath.pdf"><img src="https://static-www.nathan.fr/produits/cahier-hyperbole-2de-9782091729213.webp" width="350px"><br>TP Mathématiques</a></div>
+        <div class="card"><a href="Manuel/Physique.pdf"><img src="https://assets.lls.fr/books/978-2-37760-143-1-PC2_P_2019.png" width="350px"><br>Physique Chimie</a></div>
+        <div class="card"><a href="Manuel/SES.pdf"><img src="https://cdn.cultura.com/cdn-cgi/image/width=830/media/pim/TITELIVE/68_9782095016593_1_75.jpg" width="350px"><br>SES</a></div>
+        <div class="card"><a href="Manuel/Francais.pdf"><img src="https://assets.lls.fr/books/978-2-37760-155-4-FR2_P_2019.png" width="350px"><br>Français</a></div>
+        <div class="card"><a href="Manuel/Espagnol.pdf"><img src="https://static-www.nathan.fr/produits/lanzate-2de-9782091781556.webp" width="350px"><br>Espagnol</a></div>
+    </div>
 </body>
-<<<<<<< HEAD
 </html>
-=======
-</html>
->>>>>>> 6001503dede747f144f66cd0dfe32eb1038c0bd4
