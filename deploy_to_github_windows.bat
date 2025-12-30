@@ -1,82 +1,67 @@
-@echo off
-setlocal enabledelayedexpansion
-
-REM === Config ===
-set "REPO_URL=https://github.com/1cxnnu/1cxnnu.github.io.git"
-set "BRANCH=main"
-set "COMMIT_MSG=Deploy new site (replace remote)"
-
-REM === Check Git ===
-where git >nul 2>&1
-if errorlevel 1 (
-  echo [ERREUR] Git n'est pas installe ou pas dans le PATH.
-  echo Installez: https://git-scm.com/download/win
-  pause
-  exit /b 1
-)
-
-REM === Init repo si besoin ===
-set "PROJECT_DIR=%cd%"
-echo [INFO] Dossier projet: %PROJECT_DIR%
-if not exist "%PROJECT_DIR%\.git" (
-  echo [INFO] Initialisation du depot Git...
-  git init || goto :git_error
-  git branch -M %BRANCH% 2>nul
-) else (
-  echo [INFO] Depot Git deja initialise.
-)
-
-REM === Remote origin ===
-for /f "tokens=* delims=" %%r in ('git remote 2^>nul') do set hasRemote=1
-if not defined hasRemote (
-  echo [INFO] Ajout remote origin: %REPO_URL%
-  git remote add origin %REPO_URL% || goto :git_error
-) else (
-  git remote set-url origin %REPO_URL% || goto :git_error
-)
-
-REM === Fetch pour se synchroniser (sans merge)
- git fetch origin %BRANCH% --prune
-
-REM === Stage + commit ===
- echo [INFO] Ajout des fichiers...
- git add -A || goto :git_error
-
- set changes=
- for /f "delims=" %%i in ('git status --porcelain') do set changes=1
- if defined changes (
-   echo [INFO] Commit...
-   git commit -m "%COMMIT_MSG%" || goto :git_error
- ) else (
-   echo [INFO] Aucun changement a commiter.
- )
-
-REM === Push normal d'abord ===
- echo [INFO] Push standard vers %REPO_URL% (%BRANCH%)...
- git push -u origin %BRANCH%
- if errorlevel 1 (
-   echo.
-   echo [AVERTISSEMENT] Le push a ete rejete (le remote contient des commits).
-   set /p ANSW=Forcer l'ecrasement du remote avec le projet local ? (O/N) :
-   if /I "%ANSW%"=="O" (
-     echo [INFO] Force push avec securite (--force-with-lease)...
-     git push --force-with-lease -u origin %BRANCH% || goto :git_error
-     echo [SUCCES] Deploiement force effectue. Site: https://1cxnnu.github.io/
-     pause & exit /b 0
-   ) else (
-     echo [INFO] Annule. Aucun force-push effectue.
-     echo - Options:
-     echo   1) Lancer "git pull --rebase origin %BRANCH%" puis relancer le script
-     echo   2) Relancer le script et repondre O pour forcer l'ecrasement
-     pause & exit /b 1
-   )
- ) else (
-   echo [SUCCES] Deploiement effectue. Site: https://1cxnnu.github.io/
-   pause & exit /b 0
- )
-
-:git_error
- echo.
- echo [ERREUR] Une commande Git a echoue. Verifiez les messages ci-dessus.
- pause
- exit /b 1
+@echo off
+setlocal enableextensions enabledelayedexpansion
+
+REM Ultra-simple deploy: force push your current folder to GitHub Pages repo
+REM Usage: place this .bat in the ROOT of YOUR NEW PROJECT and double-click.
+
+set "REPO_URL=https://github.com/1cxnnu/1cxnnu.github.io.git"
+set "BRANCH=main"
+set "COMMIT_MSG=Deploy website"
+
+where git >nul 2>&1
+if errorlevel 1 (
+  echo [ERREUR] Git n'est pas installe ou pas dans le PATH. Installez: https://git-scm.com/download/win
+  pause
+  exit /b 1
+)
+
+echo [INFO] Projet: %cd%
+
+REM 1) Init repo (or switch to main)
+if not exist .git (
+  echo [INFO] Init depot Git...
+  git init || goto :fail
+)
+
+echo [INFO] Bascule/creation branche %BRANCH% ...
+git checkout -B %BRANCH% 1>nul 2>nul || git branch -M %BRANCH% 1>nul 2>nul
+
+REM 2) Remote origin -> REPO_URL
+for /f "tokens=*" %%r in ('git remote 2^>nul') do set hasRemote=1
+if not defined hasRemote (
+  echo [INFO] Ajout remote origin: %REPO_URL%
+  git remote add origin %REPO_URL% 1>nul 2>nul
+) else (
+  git remote set-url origin %REPO_URL% 1>nul 2>nul
+)
+
+REM 3) Stage + commit (commit may be empty; that's fine)
+echo [INFO] Ajout des fichiers...
+git add -A || goto :fail
+set changes=
+for /f "delims=" %%i in ('git status --porcelain') do set changes=1
+if defined changes (
+  git commit -m "%COMMIT_MSG%" 1>nul 2>nul
+) else (
+  echo [INFO] Aucun changement detected; push quand meme.
+)
+
+REM 4) HARD way that just works: force push to main
+echo [INFO] Push FORCE vers %REPO_URL% (%BRANCH%) ...
+git push -f -u origin %BRANCH%
+if errorlevel 1 goto :fail
+
+echo.
+echo [SUCCES] Deploiement termine. Ouvre: https://1cxnnu.github.io/
+echo Si tu ne vois pas la mise a jour, attends 1-2 minutes et rafraichis (Ctrl+F5).
+pause
+exit /b 0
+
+:fail
+echo.
+echo [ERREUR] Echec du push.
+echo - Verifie tes identifiants GitHub si une fenetre de login apparait.
+echo - Si la branche protegee empeche le force push, desactive la protection sur 'main'.
+echo - Tu peux aussi supprimer la remote et reessayer: git remote remove origin
+pause
+exit /b 1
