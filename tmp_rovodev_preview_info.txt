@@ -1,0 +1,14 @@
+Pour prévisualiser en local, utilisez npx serve (ou python -m http.server):
+
+Option 1 (Node.js):
+- Installer si besoin: npm i -g serve
+- Lancer depuis ce dossier: serve -l 5173
+- Ouvrir: http://localhost:5173/
+
+Option 2 (Python):
+- Python 3: python -m http.server 5173
+- Ouvrir: http://localhost:5173/
+
+Option 3 (VS Code Live Server):
+- Extension Live Server -> clic droit sur index.html -> Open with Live Server
+- L’URL sera http://127.0.0.1:5500/ (ou similaire)

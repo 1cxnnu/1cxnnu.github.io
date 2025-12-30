@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Première | Manuels Corrigés</title>
+  <link rel="stylesheet" href="../shared.css">
+  <link rel="icon" href="Image/29302.png">
+  <link rel="preload" as="audio" href="../sound.mp3">
+</head>
+<body class="page-premiere">
+  <div class="container">
+      <a class="back-home" href="../home.html" title="Retour à l’accueil">
+        <span class="icon">←</span>
+        <span class="label">Accueil</span>
+      </a>
+    <div class="header">
+      <h2>Manuels Première</h2>
+    </div>
+    <div class="grid">
+      <a class="card" href="Manuels/Mathématiques.pdf">
+        <img src="https://www.editions-hatier.fr/sites/default/files/couvertures/couverture_1322713.jpg" alt="Mathématiques">
+        <span>Mathématiques</span>
+      </a>
+      <a class="card" href="Manuels/SpePhysique.pdf">
+        <img src="https://www.editions-bordas.fr/sites/default/files/medias/images/ouvrages/9782047336861.jpg" alt="Spé-Physique">
+        <span>Spé-Physique</span>
+      </a>
+      <a class="card" href="https://www.calameo.com/read/0005967290833b8fdc869">
+        <img src="https://assets.lls.fr/books/20133433/fr1-tech.png" alt="Français">
+        <span>Français</span>
+      </a>
+      <a class="card" href="Manuels/EnseignementSci.pdf">
+        <img src="https://assets.lls.fr/books/2327683/es1-2023-couv-130723.png" alt="Enseignement Scientifique">
+        <span>Enseignement Scientifique</span>
+      </a>
+      <a class="card" href="Manuels/HistoireGeo.pdf">
+        <img src="https://media.hachette.fr/fit-in/780x1280/imgArticle/HACHETTEEDUCATIONTECHN/2019/9782013954495-001-X.jpeg?source=web" alt="Histoire-Géographie">
+        <span>Histoire-Géographie</span>
+      </a>
+      <a class="card" href="Manuels/HYMath.pdf">
+        <img src="https://static.fnac-static.com/multimedia/PE/Images/FR/NR/18/02/e4/14942744/1507-1/tsp20240716071723/Hyperbole-Maths-1ere-2022-Cahier-eleve.jpg" alt="Mathématiques TC">
+        <span>Mathématiques TC</span>
+      </a>
+      <a class="card" href="Manuels/HGGSP.pdf">
+        <img src="https://www.belin-education.com/sites/default/files/styles/bl_produit_large/public/pim_images/03580503_2.jpg?itok=hfVpKNXN" alt="HGGSP">
+        <span>HGGSP</span>
+      </a>
+      <a class="card" href="https://demo.educadhoc.fr/reader/textbook/9782401073388/fxl/Page_1?feature=freemium">
+        <img src="https://www.editions-hatier.fr/sites/default/files/styles/livre_couverture_node_view/public/couvertures/couverture_2960146.jpg?itok=ddyIS3qy" alt="Carnet de Labo">
+        <span>Carnet de Labo</span>
+      </a>
+      <a class="card" href="Manuels/GP_complet.pdf">
+        <img src="https://static-www.nathan.fr/produits/lanzate-1re-9782091781280.webp" alt="Espagnol">
+        <span>Espagnol</span>
+      </a>
+    </div>
+  </div>
+  <script src="../noise.js"></script>
+  <script>
+    (function(){
+      const NOISY_KEY = 'noisyMode';
+      if(localStorage.getItem(NOISY_KEY) === 'true'){
+        RovoNoise.smoothLoop('../sound.mp3');
+      }
+    })();
+  </script>
+  <script src="../motion.js"></script>
+  <script src="../effects.js"></script>
+</body>
+</html>

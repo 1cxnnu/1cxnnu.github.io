@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Seconde | Manuels Corrigés</title>
+  <link rel="stylesheet" href="../shared.css">
+  <link rel="icon" href="Image/29302.png">
+  <link rel="preload" as="audio" href="../sound.mp3">
+</head>
+<body class="page-seconde">
+  <div class="container">
+      <a class="back-home" href="../home.html" title="Retour à l’accueil">
+        <span class="icon">←</span>
+        <span class="label">Accueil</span>
+      </a>
+    <div class="header">
+      <h2>Manuels Seconde</h2>
+    </div>
+    <div class="grid">
+      <a class="card" href="Manuel/Geo2ND.pdf">
+        <img src="https://www.magnard.fr/sites/default/files/couvertures/9782210117624-g.jpg" alt="Géographie">
+        <span>Géographie</span>
+      </a>
+      <a class="card" href="Manuel/Histoire.pdf">
+        <img src="https://www.belin-education.com/sites/default/files/styles/bl_produit_large/public/pim_images/03580212_2.jpg" alt="Histoire">
+        <span>Histoire</span>
+      </a>
+      <a class="card" href="Manuel/ManuelMath.pdf">
+        <img src="https://www.magnard.fr/sites/default/files/couvertures/9782210111653-g.jpg" alt="Mathématiques">
+        <span>Mathématiques</span>
+      </a>
+      <a class="card" href="Manuel/TPFr.pdf">
+        <img src="https://www.magnard.fr/sites/default/files/couvertures/9782210114906-g.jpg" alt="TP Français">
+        <span>TP Français</span>
+      </a>
+      <a class="card" href="Manuel/TPMath.pdf">
+        <img src="https://static-www.nathan.fr/produits/cahier-hyperbole-2de-9782091729213.webp" alt="TP Mathématiques">
+        <span>TP Mathématiques</span>
+      </a>
+      <a class="card" href="Manuel/Physique.pdf">
+        <img src="https://assets.lls.fr/books/978-2-37760-143-1-PC2_P_2019.png" alt="Physique Chimie">
+        <span>Physique Chimie</span>
+      </a>
+      <a class="card" href="Manuel/SES.pdf">
+        <img src="https://cdn.cultura.com/cdn-cgi/image/width=830/media/pim/TITELIVE/68_9782095016593_1_75.jpg" alt="SES">
+        <span>SES</span>
+      </a>
+      <a class="card" href="Manuel/Francais.pdf">
+        <img src="https://assets.lls.fr/books/978-2-37760-155-4-FR2_P_2019.png" alt="Français">
+        <span>Français</span>
+      </a>
+      <a class="card" href="Manuel/Espagnol.pdf">
+        <img src="https://static-www.nathan.fr/produits/lanzate-2de-9782091781556.webp" alt="Espagnol">
+        <span>Espagnol</span>
+      </a>
+    </div>
+  </div>
+  <script src="../noise.js"></script>
+  <script>
+    (function(){
+      const NOISY_KEY = 'noisyMode';
+      if(localStorage.getItem(NOISY_KEY) === 'true'){
+        RovoNoise.smoothLoop('../sound.mp3');
+      }
+    })();
+  </script>
+  <script src="../motion.js"></script>
+  <script src="../effects.js"></script>
+</body>
+</html>

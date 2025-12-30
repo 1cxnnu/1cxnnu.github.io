@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Terminale | Manuels Corrigés</title>
+  <link rel="stylesheet" href="../shared.css">
+  <link rel="icon" href="Image/29302.png">
+  <link rel="preload" as="audio" href="../sound.mp3">
+</head>
+<body class="page-terminale">
+  <div class="container">
+      <a class="back-home" href="../home.html" title="Retour à l’accueil">
+        <span class="icon">←</span>
+        <span class="label">Accueil</span>
+      </a>
+    <div class="header">
+      <h2>Manuels Terminale</h2>
+    </div>
+    <div class="grid">
+      <a class="card" href="Manuel/GEOTle.pdf">
+        <img src="https://www.editions-hatier.fr/sites/default/files/couvertures/couverture_5589092.jpg" alt="Géographie">
+        <span>Géographie</span>
+      </a>
+      <a class="card" href="Manuel/HistoireTle.pdf">
+        <img src="https://www.magnard.fr/sites/default/files/couvertures/9782210113688-g.jpg" alt="Histoire">
+        <span>Histoire</span>
+      </a>
+      <a class="card" href="Manuel/733761_ldp_integral.pdf">
+        <img src="https://www.magnard.fr/sites/default/files/couvertures/9782210114166-g.jpg" alt="Maths - Intégral">
+        <span>Maths - Intégral</span>
+      </a>
+      <a class="card" href="Manuel/9782210114166_ldp_exp_integrale.pdf">
+        <img src="https://www.magnard.fr/sites/default/files/couvertures/9782210114166-g.jpg" alt="Maths - Exp. intégrale">
+        <span>Maths - Exp. intégrale</span>
+      </a>
+      <a class="card" href="Manuel/9782210114258-ldp-integralite.pdf">
+        <img src="https://www.magnard.fr/sites/default/files/couvertures/9782210114258-g.jpg" alt="Maths - Intégralité">
+        <span>Maths - Intégralité</span>
+      </a>
+      <a class="card" href="Manuel/03580900_ldp_svt.pdf">
+        <img src="https://www.editions-hatier.fr/sites/default/files/couvertures/couverture_5589092.jpg" alt="SVT">
+        <span>SVT</span>
+      </a>
+      <a class="card" href="Manuel/09167390_001-118_LP.pdf">
+        <img src="https://static-www.nathan.fr/produits/physique-chimie-terminale-9782091547282.webp" alt="Physique">
+        <span>Physique</span>
+      </a>
+      <a class="card" href="Manuel/09172892_Hyp_Specialite_LDP_COMPLET_1.pdf">
+        <img src="https://static-www.nathan.fr/produits/hyperbole-tle-9782091729268.webp" alt="Maths Spécialité">
+        <span>Maths Spécialité</span>
+      </a>
+      <a class="card" href="Manuel/HGGSPTle.pdf">
+        <img src="https://www.magnard.fr/sites/default/files/couvertures/9782210117624-g.jpg" alt="HGGSP (Magnard)">
+        <span>HGGSP</span>
+      </a>
+      <a class="card" href="Manuel/lanzate_term_gp_complet.pdf">
+        <img src="https://static-www.nathan.fr/produits/lanzate-tle-9782091781563.webp" alt="Espagnol">
+        <span>Espagnol</span>
+      </a>
+      <a class="card" href="Manuel/SES.pdf">
+        <img src="https://cdn.cultura.com/cdn-cgi/image/width=830/media/pim/TITELIVE/68_9782095016593_1_75.jpg" alt="SES">
+        <span>SES</span>
+      </a>
+    </div>
+  </div>
+  <script src="../noise.js"></script>
+  <script>
+    (function(){
+      const NOISY_KEY = 'noisyMode';
+      if(localStorage.getItem(NOISY_KEY) === 'true'){
+        RovoNoise.smoothLoop('../sound.mp3');
+      }
+    })();
+  </script>
+  <script src="../motion.js"></script>
+  <script src="../effects.js"></script>
+</body>
+</html>

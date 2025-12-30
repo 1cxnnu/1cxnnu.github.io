@@ -1,0 +1,135 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Accès | Manuels Corrigés</title>
+  <link rel="stylesheet" href="shared.css">
+  <link rel="icon" href="Premiere/Image/29302.png">
+  <link rel="preload" as="audio" href="sound2.mp3">
+  <style>
+    /* micro-ripple appliqué via shared.css sur .round-btn et .btn */
+    .gate { display:grid; gap:16px; }
+    .field { display:grid; gap:12px; justify-items:center; }
+    input[type=password]{
+      width:min(100%, 380px);
+      padding:14px 16px; border-radius:12px; border:1px solid var(--border);
+      background: rgba(255,255,255,0.02); color:var(--text);
+      font-size:16px;
+    }
+    .btn { cursor:pointer; border:none; padding:12px 18px; border-radius:12px;
+      background: var(--surface-muted); color: var(--text); font-weight:700; font-size:16px;
+      transition: transform .15s ease, filter .15s ease;
+    }
+    .btn:hover { filter: brightness(1.05); transform: translateY(-1px); }
+    .hint { color: var(--text-dim); font-size: 14px; }
+    .center { display:flex; justify-content:center; gap:12px; flex-wrap: wrap; }
+
+    .subtitle { color: var(--text-dim); font-size: 15px; text-align:center; margin-top:-4px; }
+
+    .ghost-btn { cursor:pointer; border:1px solid var(--border); border-radius:999px; padding:10px 16px;
+      background: rgba(255,255,255,0.015); color: var(--text); font-weight:600; font-size:14px;
+      transition: transform .15s ease, background .15s ease, border-color .15s ease; }
+    .ghost-btn:hover { transform: translateY(-1px); background: rgba(255,255,255,0.035); border-color: rgba(255,255,255,0.12); }
+
+    .round-btn { cursor:pointer; border:1px solid var(--border); border-radius:999px; padding:12px 18px;
+      background: rgba(255,255,255,0.03); color: var(--text); font-weight:700; font-size:15px;
+      box-shadow: 0 8px 18px rgba(0,0,0,.45); transition: transform .2s ease, box-shadow .2s ease, background .2s ease;
+    }
+    .round-btn:hover { transform: translateY(-2px); background: rgba(255,255,255,0.05);
+      box-shadow: 0 14px 36px rgba(0,0,0,.55), 0 0 0 1px rgba(255,255,255,.08) inset; }
+
+    .error { color:#ff6b6b; font-size:14px; min-height: 18px; text-align:center; }
+  </style>
+</head>
+<body>
+  <div class="choix-niveau">
+    <div class="header">
+      <h1>Entrez le mot de passe pour accéder au manuel</h1>
+      <p class="subtitle">Accès réservé — Merci d’entrer le code d’accès pour continuer.</p>
+    </div>
+    <div class="gate">
+      <div class="field">
+        <input id="pwd" type="password" placeholder="Mot de passe" autocomplete="off" />
+        <button id="enter" class="btn">Entrer</button>
+        <div id="err" class="error"></div>
+      </div>
+      <div class="hint center">
+        <button id="noPwd" class="round-btn" type="button">Je n’ai pas le mot de passe</button>
+        <button id="knowMdpBtn" class="ghost-btn" type="button">tkt je connais le mdp</button>
+      </div>
+    </div>
+  </div>
+  <script>
+    // Note: aucun son ne se lance sur cette page tant que le mode bruyant n'est pas activé volontairement
+
+    (function(){
+      const OK = 'ynslpb';
+      const NOISY_KEY = 'noisyMode';
+      const pwd = document.getElementById('pwd');
+      const err = document.getElementById('err');
+      const noPwdBtn = document.getElementById('noPwd');
+      const knowBtn = document.getElementById('knowMdpBtn');
+      const panel = document.querySelector('.choix-niveau');
+      const field = document.querySelector('.field');
+      let attempts = 0;
+
+      const goHome = (noisy)=>{
+        // Animation de succès sur le panel avant navigation
+        panel.style.transition = 'transform .25s ease, box-shadow .25s ease';
+        panel.style.boxShadow = '0 0 0 1px rgba(255,255,255,.12) inset, 0 22px 50px rgba(0,0,0,.6)';
+      
+        try { localStorage.setItem(NOISY_KEY, noisy ? 'true' : 'false'); } catch(e){}
+        location.href = 'home.html';
+      }
+      const wrong = ()=>{
+        attempts++;
+        err.textContent = 'Mot de passe incorrect';
+        // Tremblement du panneau et du champ
+        [panel, field].forEach(el=>{
+          if(!el) return;
+          el.classList.remove('shake');
+          // forcer reflow pour relancer l’anim si répétée
+          void el.offsetWidth;
+          el.classList.add('shake');
+          el.addEventListener('animationend', ()=> el.classList.remove('shake'), { once: true });
+        });
+        if(attempts >= 4){
+          // Après 4 tentatives, activer le mode bruyant comme si "Je n’ai pas le mot de passe"
+          goHome(true);
+          return;
+        }
+        pwd.focus();
+      }
+
+      function submit(){
+        const val = (pwd.value||'').trim().toLowerCase();
+        if(val === OK){ goHome(false); }
+        else { wrong(); }
+      }
+      document.getElementById('enter').addEventListener('click', submit);
+
+      noPwdBtn.addEventListener('click', (e)=>{
+        e.preventDefault();
+        goHome(true);
+      });
+
+      // Bouton "tkt je connais le mdp": joue une seule fois sound2 et disparaît
+      knowBtn.addEventListener('click', ()=>{
+        try {
+          const a = new Audio('sound2.mp3');
+          a.loop = false;
+          a.volume = 1.0;
+          a.play().catch(()=>{});
+        } catch(e) {}
+        knowBtn.style.display = 'none';
+      });
+
+      pwd.addEventListener('keydown', (e)=>{ if(e.key==='Enter'){ submit(); } });
+      pwd.addEventListener('input', ()=>{ pwd.classList.remove('typing'); void pwd.offsetWidth; pwd.classList.add('typing'); });
+    })();
+  </script>
+  <script src="motion.js"></script>
+  <script src="effects.js"></script>
+</body>
+</html>

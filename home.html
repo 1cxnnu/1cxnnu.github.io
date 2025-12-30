@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Manuels Corrigés</title>
+  <link rel="stylesheet" href="shared.css">
+  <link rel="icon" href="Premiere/Image/29302.png">
+  <link rel="preload" as="audio" href="sound.mp3">
+</head>
+<body>
+  <div class="choix-niveau">
+    <div class="header">
+      <h1>Manuels Corrigés</h1>
+      <h2>Choisissez votre niveau</h2>
+    </div>
+    <div class="level-grid">
+      <a class="level-card" href="Seconde/seconde.html">Seconde (2de)</a>
+      <a class="level-card" href="Premiere/premiere.html">Première (1re)</a>
+      <a class="level-card" href="Terminale/terminale.html">Terminale (Tle)</a>
+    </div>
+  </div>
+  <script src="noise.js"></script>
+  <script>
+    (function(){
+      const NOISY_KEY = 'noisyMode';
+      if(localStorage.getItem(NOISY_KEY) === 'true'){
+        RovoNoise.smoothLoop('sound.mp3');
+      }
+    })();
+  </script>
+  <script src="motion.js"></script>
+  <script src="effects.js"></script>
+</body>
+</html>
